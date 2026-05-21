@@ -1,29 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join the Team</title>
-  
-  <!-- Premium Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  
-  <!-- Linked External Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <link rel="stylesheet" href="includes/css/main.css">
 </head>
 <body>
 
-  <section class="join-section">
-    <div class="join-content">
-      <h1 class="join-headline">We're Building the Future</h1>
-      <p class="join-message">We are looking for passionate, creative minds to join our mission. Ready to make a real impact on the world?</p>
-      <button id="joinBtn" class="join-btn">Join the Team</button>
-    </div>
-  </section>
+    <!-- Header / Navigation -->
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">DevPortfolio</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Linked External JavaScript -->
-  <script src="script.js"></script>
+    <!-- Hero / About Section -->
+    <section id="about" class="hero-section">
+        <div class="container hero-content">
+            <h1>Hi, I'm a Developer & Maker</h1>
+            <p>Welcome to my personal portfolio. I build web applications, explore intelligent software, and experiment with custom hardware projects. Here is a look at what I've been working on.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Projects Gallery Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Interactive Web Sandbox</h3>
+                        <p>A responsive, interactive web application featuring real-time parameter tuning and dynamic state rendering built with vanilla JavaScript and CSS variables.</p>
+                        <div class="tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Embedded Desk Pet</h3>
+                        <p>A custom micro-controller project using an ESP32 board and an LCD display to render animated vector-style eyes that respond dynamically to a capacitive touch sensor.</p>
+                        <div class="tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">Hardware</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>Tabletop Rulebook System</h3>
+                        <p>A comprehensive, structured data parsing system designed to handle character stats, combat logic, and balancing algorithms for custom game designs.</p>
+                        <div class="tags">
+                            <span class="tag">Data Structure</span>
+                            <span class="tag">Logic Design</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <footer id="contact" class="main-footer">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Interested in collaborating or seeing more of my technical work?</p>
+            <div class="footer-links">
+                <a href="mailto:your.email@example.com">Email Me</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            </div>
+            <p class="copyright">&copy; 2026 Developer Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
