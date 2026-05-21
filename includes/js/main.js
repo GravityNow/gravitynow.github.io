@@ -1,14 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const joinButton = document.getElementById('joinBtn');
+    
+    // --- Project Card Category Filter Feature ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
-  if (joinButton) {
-    joinButton.addEventListener('click', (event) => {
-      // Prevents any unwanted default actions if embedded inside forms
-      event.preventDefault(); 
-      
-      // Placeholder logic for application handler
-      console.log('Join the Team button was clicked!');
-      alert('Thank you for your interest! The application form will load shortly.');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active style from all buttons, add to clicked button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            // Toggle project visibility with a clean visual transition logic
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || category === filterValue) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
     });
-  }
+
+    // --- Soft Interactive Hover States ---
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-4px)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
 });

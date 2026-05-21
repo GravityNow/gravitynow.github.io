@@ -3,93 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portfolio</title>
+    <title>Developer & Maker Portfolio</title>
     <link rel="stylesheet" href="includes/css/main.css">
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header class="main-header">
-        <div class="container header-flex">
-            <div class="logo">DevPortfolio</div>
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero / About Section -->
-    <section id="about" class="hero-section">
-        <div class="container hero-content">
-            <h1>Hi, I'm a Developer & Maker</h1>
-            <p>Welcome to my personal portfolio. I build web applications, explore intelligent software, and experiment with custom hardware projects. Here is a look at what I've been working on.</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </section>
-
-    <!-- Projects Gallery Section -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
+    <!-- Main Split Layout Container -->
+    <div class="portfolio-container">
+        
+        <!-- Left Sidebar: Fixed Intro & Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="logo">DevPortfolio</div>
                 
-                <!-- Project Card 1 -->
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Interactive Web Sandbox</h3>
-                        <p>A responsive, interactive web application featuring real-time parameter tuning and dynamic state rendering built with vanilla JavaScript and CSS variables.</p>
-                        <div class="tags">
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS3</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
+                <div class="bio">
+                    <h1>Hi, I'm a Developer & Maker</h1>
+                    <p>Welcome to my personal portfolio. I build web applications, explore intelligent software, and experiment with custom hardware projects.</p>
+                </div>
+
+                <!-- Tag Filter Controls -->
+                <div class="filter-section">
+                    <span class="filter-title">Filter Work</span>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="web">Web</button>
+                        <button class="filter-btn" data-filter="hardware">Hardware</button>
+                        <button class="filter-btn" data-filter="logic">Systems</button>
                     </div>
                 </div>
 
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Embedded Desk Pet</h3>
-                        <p>A custom micro-controller project using an ESP32 board and an LCD display to render animated vector-style eyes that respond dynamically to a capacitive touch sensor.</p>
-                        <div class="tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">ESP32</span>
-                            <span class="tag">Hardware</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>Tabletop Rulebook System</h3>
-                        <p>A comprehensive, structured data parsing system designed to handle character stats, combat logic, and balancing algorithms for custom game designs.</p>
-                        <div class="tags">
-                            <span class="tag">Data Structure</span>
-                            <span class="tag">Logic Design</span>
-                        </div>
-                    </div>
-                </div>
-
+                <nav class="nav-links">
+                    <a href="#projects" class="nav-item">Featured Work</a>
+                    <a href="#contact" class="nav-item">Let's Connect</a>
+                </nav>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <!-- Contact / Footer Section -->
-    <footer id="contact" class="main-footer">
-        <div class="container">
-            <h2>Let's Connect</h2>
-            <p>Interested in collaborating or seeing more of my technical work?</p>
-            <div class="footer-links">
-                <a href="mailto:your.email@example.com">Email Me</a>
-                <a href="https://github.com" target="_blank">GitHub</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            </div>
-            <p class="copyright">&copy; 2026 Developer Portfolio. All rights reserved.</p>
-        </div>
-    </footer>
+        <!-- Right Side: Scrolling Main Content -->
+        <main class="main-content">
+            
+            <!-- Projects Section -->
+            <section id="projects" class="projects-section">
+                <div class="grid-header">
+                    <h2 class="section-title">Selected Projects</h2>
+                    <span class="line"></span>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-info">
+                            <h3>Interactive Web Sandbox</h3>
+                            <p>A responsive, interactive web application featuring real-time parameter tuning and dynamic state rendering built with vanilla JavaScript and CSS variables.</p>
+                            <div class="tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Project Card 2 -->
+                    <div class="project-card" data-category="hardware">
+                        <div class="project-info">
+                            <h3>Embedded Desk Pet</h3>
+                            <p>A custom micro-controller project using an ESP32 board and an LCD display to render animated vector-style eyes that respond dynamically to a capacitive touch sensor.</p>
+                            <div class="tags">
+                                <span class="tag">C++</span>
+                                <span class="tag">ESP32</span>
+                                <span class="tag">Hardware</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card" data-category="logic">
+                        <div class="project-info">
+                            <h3>Tabletop Rulebook System</h3>
+                            <p>A comprehensive, structured data parsing system designed to handle character stats, combat logic, and balancing algorithms for custom game designs.</p>
+                            <div class="tags">
+                                <span class="tag">Data Structure</span>
+                                <span class="tag">Logic Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact / Footer Section -->
+            <footer id="contact" class="main-footer">
+                <h2>Get in touch.</h2>
+                <p>Interested in collaborating or seeing more of my technical work?</p>
+                <div class="footer-links">
+                    <a href="mailto:your.email@example.com">Email</a>
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                </div>
+                <p class="copyright">&copy; 2026 Portfolio. All rights reserved.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Main JavaScript Architecture File -->
+    <script src="includes/js/main.js"></script>
 </body>
 </html>
