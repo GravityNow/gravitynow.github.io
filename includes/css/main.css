@@ -1,14 +1,14 @@
-/* --- Global Reset & Green Variables --- */
+/* --- Global Reset & Neon Variables --- */
 :root {
-    --primary-color: #10b981;       /* Clean Emerald Green */
-    --primary-hover: #059669;       /* Deep Forest Green */
-    --bg-dark: #0f172a;
-    --bg-light: #f8fafc;
-    --bg-card: #ffffff;
-    --text-main: #1e293b;
-    --text-light: #64748b;
-    --border-color: #e2e8f0;
-    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --primary-color: #10b981;       /* Terminal Neon Green */
+    --primary-glow: rgba(16, 185, 129, 0.25);
+    --bg-dark: #090d16;             /* Deep Midnight Space */
+    --bg-surface: #111827;          /* Card Background */
+    --text-main: #f3f4f6;           /* Crisp White-Gray */
+    --text-light: #9ca3af;          /* Dimmed Gray */
+    --border-color: #1f2937;
+    --font-mono: 'Courier New', Courier, monospace;
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -22,10 +22,14 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--text-main);
-    background-color: var(--bg-light);
+    background-color: var(--bg-dark);
     line-height: 1.6;
+    background-image: 
+        linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+    background-size: 32px 32px; /* Subtly textures the dark background with a grid matrix */
 }
 
 /* --- Split Layout Engine --- */
@@ -37,7 +41,8 @@ body {
 /* --- Left Sidebar (Fixed on Desktop) --- */
 .sidebar {
     width: 35%;
-    background-color: var(--bg-card);
+    background-color: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(12px);
     border-right: 1px solid var(--border-color);
     position: fixed;
     top: 0;
@@ -57,23 +62,30 @@ body {
 }
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    color: var(--bg-dark);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo::before {
+    content: "> ";
 }
 
 .bio h1 {
-    font-size: 2.5rem;
-    line-height: 1.15;
-    color: var(--bg-dark);
+    font-size: 2.75rem;
+    line-height: 1.1;
+    color: #ffffff;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    font-weight: 800;
 }
 
 .bio p {
     color: var(--text-light);
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 /* --- Interactive Tag Filter Styles --- */
@@ -83,12 +95,12 @@ body {
 
 .filter-title {
     display: block;
-    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-light);
-    margin-bottom: 0.75rem;
-    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 .filter-buttons {
@@ -98,12 +110,12 @@ body {
 }
 
 .filter-btn {
-    background: none;
+    background: rgba(31, 41, 55, 0.5);
     border: 1px solid var(--border-color);
-    padding: 0.35rem 0.85rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    border-radius: 6px;
+    padding: 0.4rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    border-radius: 4px;
     cursor: pointer;
     color: var(--text-light);
     transition: var(--transition);
@@ -111,13 +123,15 @@ body {
 
 .filter-btn:hover {
     border-color: var(--primary-color);
-    color: var(--primary-color);
+    color: #ffffff;
+    background: rgba(16, 185, 129, 0.05);
 }
 
 .filter-btn.active {
-    background-color: var(--primary-color);
+    background-color: rgba(16, 185, 129, 0.15);
     border-color: var(--primary-color);
-    color: white;
+    color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 
 /* --- Navigation Links --- */
@@ -129,23 +143,33 @@ body {
 
 .nav-item {
     text-decoration: none;
+    font-family: var(--font-mono);
     color: var(--text-light);
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     transition: var(--transition);
     width: fit-content;
 }
 
+.nav-item::before {
+    content: "// ";
+    color: var(--border-color);
+    transition: var(--transition);
+}
+
 .nav-item:hover {
+    color: #ffffff;
+    transform: translateX(6px);
+}
+
+.nav-item:hover::before {
     color: var(--primary-color);
-    transform: translateX(4px);
 }
 
 /* --- Right Content Pane (Scrolls on Desktop) --- */
 .main-content {
     margin-left: 35%; 
     width: 65%;
-    padding: 4rem 5rem;
+    padding: 5rem 6rem;
     display: flex;
     flex-direction: column;
     gap: 6rem;
@@ -160,19 +184,20 @@ body {
 }
 
 .section-title {
-    font-size: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     color: var(--text-light);
 }
 
 .line {
     flex-grow: 1;
     height: 1px;
-    background-color: var(--border-color);
+    background-image: linear-gradient(to right, var(--border-color), transparent);
 }
 
-/* --- Dynamic Projects Grid --- */
+/* --- Cyberpunk Projects Grid --- */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr; 
@@ -180,13 +205,12 @@ body {
 }
 
 .project-card {
-    background-color: var(--bg-card);
+    background-color: var(--bg-surface);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 4px;
     padding: 2.5rem;
+    position: relative;
     transition: var(--transition);
-    opacity: 1;
-    transform: scale(1);
 }
 
 /* Hidden state for JS Filter */
@@ -196,18 +220,21 @@ body {
 
 .project-card:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 12px 24px -10px rgba(16, 185, 129, 0.08);
+    background-color: rgba(17, 24, 39, 0.9);
+    box-shadow: 0 8px 24px -8px var(--primary-glow);
 }
 
 .project-info h3 {
-    font-size: 1.5rem;
-    color: var(--bg-dark);
+    font-size: 1.6rem;
+    color: #ffffff;
     margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
 }
 
 .project-info p {
     color: var(--text-light);
     margin-bottom: 2rem;
+    font-size: 0.95rem;
 }
 
 .tags {
@@ -217,13 +244,13 @@ body {
 }
 
 .tag {
-    background-color: var(--bg-light);
-    color: var(--text-main);
+    background-color: rgba(9, 13, 22, 0.6);
+    color: var(--primary-color);
+    font-family: var(--font-mono);
     font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.35rem 0.85rem;
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    border: 1px solid rgba(16, 185, 129, 0.15);
 }
 
 /* --- Inline Minimal Footer --- */
@@ -233,9 +260,10 @@ body {
 }
 
 .main-footer h2 {
-    font-size: 2rem;
-    color: var(--bg-dark);
+    font-size: 2.25rem;
+    color: #ffffff;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
 }
 
 .main-footer p {
@@ -250,19 +278,22 @@ body {
 }
 
 .footer-links a {
-    color: var(--bg-dark);
+    font-family: var(--font-mono);
+    color: var(--primary-color);
     text-decoration: none;
-    font-weight: 600;
+    font-size: 0.9rem;
     transition: var(--transition);
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: #ffffff;
+    text-shadow: 0 0 8px var(--primary-glow);
 }
 
 .copyright {
-    font-size: 0.8rem;
-    color: var(--text-light) !important;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: rgba(156, 163, 175, 0.4) !important;
 }
 
 /* --- Responsive Adjustments (Mobile Collapse) --- */
@@ -280,13 +311,17 @@ body {
     }
     
     .sidebar-content {
-        gap: 2.5rem;
+        gap: 3rem;
     }
     
     .main-content {
         margin-left: 0;
         width: 100%;
-        padding: 3rem 2rem;
+        padding: 4rem 2rem;
         gap: 4rem;
+    }
+    
+    .bio h1 {
+        font-size: 2.25rem;
     }
 }
