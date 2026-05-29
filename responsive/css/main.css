@@ -1,0 +1,299 @@
+/* ==========================================================================
+   1. Brand Architecture & Variables (Intel Modern Charcoal & Sage)
+   ========================================================================== */
+:root {
+  --bg-deep: #09090b;
+  --bg-surface: #141417;
+  --border-subtle: #1f1f23;
+  --border-active: #3f3f46;
+  
+  --text-pure: #ffffff;
+  --text-body: #a1a1aa;
+  --text-muted: #52525b;
+  --sage-accent: #a7f3d0;
+  --sage-dim: #064e3b;
+  
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Centered Architectural Header
+   ========================================================================== */
+.hero-section {
+  max-width: 1200px;
+  width: 100%;
+  margin: 5rem auto 2rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.brand-badge {
+  display: inline-block;
+  font-size: 0.725rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.hero-section h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text-pure);
+  margin-bottom: 1.25rem;
+}
+
+.text-gradient {
+  color: var(--text-muted);
+}
+
+.hero-lead {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto;
+  color: var(--text-body);
+}
+
+/* ==========================================================================
+   3. Flexbox Layout Engine with CSS Scroll Snap (Large Viewports)
+   ========================================================================== */
+.timeline-viewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /* Scroll Snap Rules */
+  scroll-snap-type: x mandatory; /* Forces track snap locking along the x-axis */
+}
+
+/* Custom Scrollbar Styling */
+.timeline-viewport::-webkit-scrollbar {
+  height: 6px;
+}
+.timeline-viewport::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+.timeline-viewport::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 10px;
+}
+.timeline-viewport::-webkit-scrollbar-thumb:hover {
+  background: var(--border-active);
+}
+
+/* The Horizontal Flex Track Container */
+.timeline-track {
+  display: flex;
+  flex-direction: row; 
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+/* ==========================================================================
+   4. Milestone Card Blueprint & Aspect-Ratios
+   ========================================================================== */
+.milestone-card {
+  flex: 0 0 320px; 
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  
+  /* Alignment Snap Position Target */
+  scroll-snap-align: center; /* Centers each element into viewpoint crosshairs during scroll */
+  scroll-snap-stop: always;  /* Prevents scrolling past multiple cards accidentally */
+}
+
+/* Precise 1:1 Square Framing Layout */
+.media-viewport {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  background-color: #0c0c0e;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.media-viewport img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+  opacity: 0.6;
+  transition: var(--transition-smooth);
+}
+
+.card-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-year {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-pure);
+  letter-spacing: -0.02em;
+}
+
+.card-category {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-pure);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   5. Interactive Reveal Engine (CSS Height Transition)
+   ========================================================================== */
+.reveal-wrapper {
+  display: grid;
+  grid-template-rows: 0fr; 
+  transition: var(--transition-smooth);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.card-desc {
+  overflow: hidden;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   6. Microinteractions & Advanced CSS Transforms / Shadows
+   ========================================================================== */
+.milestone-card:hover {
+  border-color: var(--border-active);
+  
+  /* Complex Transform & Deep layered shadow combinations */
+  transform: translateY(-8px) scale(1.02); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.milestone-card:hover .media-viewport img {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1);
+  opacity: 0.9;
+}
+
+/* Trigger Smooth Grid Row Reveal on Hover */
+.milestone-card:hover .reveal-wrapper {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  opacity: 1;
+  margin-top: 0.75rem;
+}
+
+/* Thematic Sustainable Green Pivot Treatment (2006 Node) */
+.milestone-card.sustainability-pivot {
+  border-color: rgba(167, 243, 208, 0.15);
+}
+
+.milestone-card.sustainability-pivot .badge-alert {
+  color: var(--sage-accent);
+  background-color: var(--sage-dim);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.milestone-card.sustainability-pivot:hover {
+  border-color: var(--sage-accent);
+  box-shadow: 0 20px 40px rgba(6, 78, 59, 0.3);
+}
+
+/* ==========================================================================
+   7. Footer Hint Setup
+   ========================================================================== */
+.minimal-footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   8. Responsive Media Queries (Adaptive Flexbox Engine)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .timeline-viewport {
+    padding: 2rem 1.5rem;
+    overflow-x: visible; 
+    scroll-snap-type: none; /* Turn off scroll snapping functionality on stacked settings */
+  }
+
+  .timeline-track {
+    flex-direction: column; /* Flips the engine to display cards down a natural vertical axis */
+    width: 100%;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .milestone-card {
+    flex: none; 
+    width: 100%; 
+    scroll-snap-align: none;
+  }
+
+  .media-viewport {
+    padding-top: 56.25%; /* Transforms into structural 16:9 cinematic aspect box windows */
+  }
+
+  /* Automatically display text descriptions on mobile viewports safely */
+  .reveal-wrapper {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    opacity: 1;
+    margin-top: 0.75rem;
+  }
+}
