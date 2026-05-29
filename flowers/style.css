@@ -466,8 +466,8 @@ iframe {
   padding: 4rem;
 }
 
-.profile-text-block { 
-  display: flex;
+.profile-text-block {
+  display: flex; 
   flex-direction: column;
   gap: 1.5rem;
 }

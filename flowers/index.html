@@ -8,100 +8,200 @@
   </head>
 
   <body>
-        <a href="#main-about-content" class="skip-link">Skip to main content</a>
+    <!-- Accessibility Skip-Link for Keyboard/Screen Reader Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation Bar Consistent with Home -->
+    <!-- Responsive Main Navigation Bar -->
     <nav class="navbar" aria-label="Main Navigation">
       <div class="nav-container">
         <a href="index.html" class="nav-logo" aria-label="Fran's Flowers Home">Fran's<span>Flowers</span></a>
         <ul class="nav-links">
-          <li><a href="about-fran.html" aria-current="page" class="active">About Fran</a></li>
-          <li><a href="index.html#specials">Specials</a></li>
-          <li><a href="index.html#seasonal">Seasonal Picks</a></li>
-          <li><a href="index.html#testimonials">Reviews</a></li>
-          <li><a href="index.html#visit">Visit Us</a></li>
+          <li><a href="about-fran.html">About Fran</a></li>
+          <li><a href="#specials">Specials</a></li>
+          <li><a href="#seasonal">Seasonal Picks</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#visit">Visit Us</a></li>
         </ul>
       </div>
     </nav>
 
-    <header>
+    <!-- Main Branding Header -->
+    <header class="main-header">
       <div class="header-content">
         <h1><span class="accent">Fran's</span> Flowers</h1>
         <p class="tagline">Brightening San Francisco since 1995</p>
       </div>
     </header>
 
+    <!-- Immersive Hero Frame -->
     <div id="hero-container">
       <img
         src="img/fran.png"
-        alt="Francine Miller, owner of Fran's Flowers"
+        alt="Francine Miller, smiling owner of Fran's Flowers, standing inside her vibrant Valencia Street shop surrounded by floral arrangements."
         class="hero-img"
       />
     </div>
 
-    <main>
-      <section class="about-us">
-        <h2><span class="accent">About</span> Us</h2>
-        <p>
-          Fran's Flowers was founded in 1995 by Francine Miller to share joy,
-          beauty, and connection with the Mission District of San Francisco.
-          Thirty years later we remain rooted in that vision, brightening lives
-          with every bouquet while supporting our community. Ten percent of each
-          sale continues to fund efforts to fight homelessness across the Bay
-          Area.
-        </p>
-        <p>Thank you for helping us grow kindness one flower at a time.</p>
+    <!-- Layout Container -->
+    <main id="main-content" class="content-wrapper">
+      
+      <!-- About Section Snippet -->
+      <section id="about" class="about-us" aria-labelledby="about-heading">
+        <h2 id="about-heading"><span class="accent">About</span> Us</h2>
+        <div class="about-card">
+          <p>
+            Fran's Flowers was founded in 1995 by Francine Miller to share joy,
+            beauty, and connection with the Mission District of San Francisco.
+            Thirty years later we remain rooted in that vision, brightening lives
+            with every bouquet while supporting our community. Ten percent of each
+            sale continues to fund efforts to fight homelessness across the Bay
+            Area.
+          </p>
+          <a href="about-fran.html" class="cta-link" aria-label="Read more about our owner Francine and store background">Read Our Full Story &rarr;</a>
+        </div>
       </section>
 
-      <section class="specials">
-        <h2><span class="accent">Weekly</span> Specials</h2>
+      <!-- Weekly Specials Grid Section -->
+      <section id="specials" class="specials" aria-labelledby="specials-heading">
+        <h2 id="specials-heading"><span class="accent">Weekly</span> Specials</h2>
         <div class="specials-list">
+          
           <article class="special-offer">
-            <img src="img/potted_plant.png" alt="Ceramic Potted Herbs" />
-            <h3>Ceramic Potted Herbs</h3>
-            <p class="price-now">$7.99</p>
-            <p class="price-was">Was $17.99</p>
+            <div class="card-img-wrapper">
+              <img src="img/potted_plant.png" alt="A set of fresh green kitchen herbs planted securely in a durable, rustic gray ceramic pot." />
+            </div>
+            <div class="card-body">
+              <h3>Ceramic Potted Herbs</h3>
+              <div class="price-block">
+                <span class="price-now">$7.99</span>
+                <span class="price-was">Was $17.99</span>
+              </div>
+            </div>
           </article>
 
           <article class="special-offer">
-            <img src="img/wild_flowers.png" alt="Wildflower Explosion" />
-            <h3>Wildflower Explosion</h3>
-            <p class="price-now">$19.99</p>
-            <p class="price-was">Was $29.99</p>
+            <div class="card-img-wrapper">
+              <img src="img/wild_flowers.png" alt="A dense, colorful explosion of mixed local California wildflowers arranged in a clear glass vase." />
+            </div>
+            <div class="card-body">
+              <h3>Wildflower Explosion</h3>
+              <div class="price-block">
+                <span class="price-now">$19.99</span>
+                <span class="price-was">Was $29.99</span>
+              </div>
+            </div>
           </article>
 
           <article class="special-offer">
-            <img src="img/sunflowers.png" alt="Sunflower Delight" />
-            <h3>Sunflower Delight</h3>
-            <p class="price-now">$12.99</p>
-            <p class="price-was">Was $19.99</p>
+            <div class="card-img-wrapper">
+              <img src="img/sunflowers.png" alt="A bright arrangement of pristine, tall yellow sunflowers tied together with a simple burlap twine." />
+            </div>
+            <div class="card-body">
+              <h3>Sunflower Delight</h3>
+              <div class="price-block">
+                <span class="price-now">$12.99</span>
+                <span class="price-was">Was $19.99</span>
+              </div>
+            </div>
           </article>
+          
         </div>
       </section>
 
-      <section class="visit-us">
-        <h2><span class="accent">Visit</span> Us</h2>
-        <div class="contact-info">
-          <p>Come in and say hi!</p>
-          <div class="address-block">
-            <address>123 Valencia Street, San Francisco, CA 94103</address>
+      <!-- New Section: Seasonal Picks -->
+      <section id="seasonal" class="seasonal-picks" aria-labelledby="seasonal-heading">
+        <h2 id="seasonal-heading"><span class="accent">Seasonal</span> Picks</h2>
+        <div class="seasonal-card">
+          <div class="seasonal-img-container">
+            <img src="img/autumn_bliss.png" alt="A vibrant seasonal harvest arrangement filled with deep orange marigolds, dark red roses, and dried wheat stalks." />
           </div>
-          <div class="phone-block">
-            <p>Call us at <a href="tel:+1234567890">123-456-7890</a></p>
+          <div class="seasonal-content">
+            <span class="badge-detail" aria-label="Availability detail">Only here ’til October</span>
+            <h3>The Autumn Bliss Bouquet</h3>
+            <p>
+              Celebrate the changing seasons with our handcrafted signature harvest bundle. Combining locally grown deep orange marigolds, rich crimson roses, and structural dried wheat stalks, this arrangement brings natural warmth to any space. 
+            </p>
+            <p class="seasonal-highlight"><strong>Pro-Tip:</strong> Absolute best choice for autumn birthdays and cozy host gifts!</p>
           </div>
         </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.144965296929!2d-122.4230293!3d37.7689366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3a37128e21%3A0xf85bfc7fef295b98!2s123%20Valencia%20St%2C%20San%20Francisco%2C%20CA%2094103!5e0!3m2!1sen!2sus!4v1722345678901!5m2!1sen!2sus"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-heading">
+        <h2 id="testimonials-heading"><span class="accent">Customer</span> Stories</h2>
+        <div class="testimonials-grid">
+          
+          <blockquote class="testimonial-card">
+            <p class="quote-text">"Fran’s created the arrangements for our anniversary, and they were breathtaking. You can truly tell how much care goes into every stem. Plus, knowing 10% goes back to the community makes supporting them an easy choice."</p>
+            <cite class="quote-author">&mdash; Elena K., Mission District</cite>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p class="quote-text">"The Wildflower Explosion bouquet completely transformed our living room space. The flowers lasted over two weeks, fresh and vibrant. This shop is an absolute gemstone on Valencia Street!"</p>
+            <cite class="quote-author">&mdash; Marcus T., Noe Valley</cite>
+          </blockquote>
+
+        </div>
+      </section>
+
+      <!-- Visit Us Split Layout Section -->
+      <section id="visit" class="visit-us" aria-labelledby="visit-heading">
+        <h2 id="visit-heading"><span class="accent">Visit</span> Us</h2>
+        <div class="visit-grid">
+          <div class="contact-info">
+            <p class="greeting">Come in and say hi!</p>
+            <div class="info-group">
+              <span class="info-label">Our Shop</span>
+              <address>123 Valencia Street, San Francisco, CA 94103</address>
+            </div>
+            <div class="info-group">
+              <span class="info-label">Get In Touch</span>
+              <p>Call us at <a href="tel:+1234567890" class="phone-link" aria-label="Call Fran's Flowers directly at 123-456-7890">123-456-7890</a></p>
+            </div>
+          </div>
+          <div class="map-viewport">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.144965296929!2d-122.4230293!3d37.7689366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3a37128e21%3A0xf85bfc7fef295b98!2s123%20Valencia%20St%2C%20San%20Francisco%2C%20CA%2094103!5e0!3m2!1sen!2sus!4v1722345678901!5m2!1sen!2sus"
+              title="Google Map location showing Fran's Flowers at 123 Valencia Street, San Francisco"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 Fran's Flowers LLC.</p>
-        <p>Brightening lives one flower at a time</p>
+    <!-- Enhanced Multi-Column Footer -->
+    <footer class="main-footer" aria-label="Site Footer">
+      <div class="footer-container">
+        
+        <div class="footer-brand">
+          <h3>Fran's Flowers</h3>
+          <p>Brightening lives one flower at a time since 1995 in San Francisco, CA.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer Quick Links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="about-fran.html">About Our Vision</a></li>
+            <li><a href="index.html#specials">Weekly Arrangements</a></li>
+            <li><a href="index.html#testimonials">Customer Reviews</a></li>
+            <li><a href="index.html#visit">Location & Hours</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="Visit Fran's Flowers on Instagram"><span>IG</span></a>
+            <a href="#" aria-label="Visit Fran's Flowers on Facebook"><span>FB</span></a>
+            <a href="#" aria-label="Visit Fran's Flowers on Pinterest"><span>PIN</span></a>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fran's Flowers LLC. Built with care for the Bay Area.</p>
       </div>
     </footer>
   </body>
