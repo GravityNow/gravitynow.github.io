@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Comprehensive Grid Realignment Overrides for RTL States
+   ========================================================================== */
+
+/* Automatically flips column alignment rules */
+[dir="rtl"] .text-start {
+  text-align: right !important;
+}
+
+/* Manually forces standard Bootstrap horizontal grid rows to invert layout sequence */
+[dir="rtl"] .row {
+  flex-direction: row-reverse !important;
+}
+
+/* Fixes form text padding layout alignments for inputs and label items */
+[dir="rtl"] .form-floating > .form-control {
+  padding-right: 0.75rem !important;
+  padding-left: 0.75rem !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .form-floating > label {
+  right: 0 !important;
+  left: auto !important;
+  transform-origin: 100% 0 !important;
+}
+
+/* Corrects custom checkbox floating alignments */
+[dir="rtl"] .form-check {
+  padding-right: 1.5em !important;
+  padding-left: 0 !important;
+}
+
+[dir="rtl"] .form-check .form-check-input {
+  float: right !important;
+  margin-right: -1.5em !important;
+  margin-left: 0 !important;
+}
+
+/* Flips action arrows smoothly on localized paths */
+[dir="rtl"] .link-arrow {
+  transform: scaleX(-1) !important;
+  margin-right: 0.5rem !important;
+  margin-left: 0 !important;
+}
+
+[dir="rtl"] .learn-more-link:hover .link-arrow {
+  transform: scaleX(-1) translateX(-4px) !important;
+}
+
+/* Keeps the timeline tracking smoothly horizontally */
+[dir="rtl"] .timeline-track {
+  flex-direction: row !important;
+}
