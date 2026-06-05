@@ -1,54 +1,372 @@
 /* ==========================================================================
-   Comprehensive Grid Realignment Overrides for RTL States
+   1. Brand Architecture & Variables (Intel Modern Charcoal & Sage)
    ========================================================================== */
-
-/* Automatically flips column alignment rules */
-[dir="rtl"] .text-start {
-  text-align: right !important;
+:root {
+  --bg-deep: #09090b;
+  --bg-surface: #141417;
+  --border-subtle: #1f1f23;
+  --border-active: #3f3f46;
+  
+  --text-pure: #ffffff;
+  --text-body: #a1a1aa;
+  --text-muted: #52525b;
+  --sage-accent: #a7f3d0;
+  --sage-dim: #064e3b;
+  
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Manually forces standard Bootstrap horizontal grid rows to invert layout sequence */
-[dir="rtl"] .row {
-  flex-direction: row-reverse !important;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Fixes form text padding layout alignments for inputs and label items */
-[dir="rtl"] .form-floating > .form-control {
-  padding-right: 0.75rem !important;
-  padding-left: 0.75rem !important;
-  text-align: right !important;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-[dir="rtl"] .form-floating > label {
+/* ==========================================================================
+   ISOLATION ENFORCEMENT ENGINE: Shields your original code from Bootstrap Resets
+   ========================================================================== */
+.my-original-template .hero-section {
+  max-width: 1200px;
+  width: 100%;
+  margin: 5rem auto 2rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.my-original-template .brand-badge {
+  display: inline-block;
+  font-size: 0.725rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.my-original-template .hero-section h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--text-pure);
+  margin-bottom: 1.25rem;
+}
+
+.my-original-template .text-gradient {
+  color: var(--text-muted);
+}
+
+.my-original-template .hero-lead {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto;
+  color: var(--text-body);
+}
+
+/* Flexbox Horizontal Track Engine Blueprint Protection */
+.my-original-template .timeline-viewport {
+  flex: none !important;
+  display: flex !important;
+  align-items: center;
+  padding: 2rem 4rem;
+  overflow-x: auto !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.my-original-template .timeline-viewport::-webkit-scrollbar {
+  height: 6px;
+}
+.my-original-template .timeline-viewport::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+.my-original-template .timeline-viewport::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 10px;
+}
+.my-original-template .timeline-viewport::-webkit-scrollbar-thumb:hover {
+  background: var(--border-active);
+}
+
+.my-original-template .timeline-track {
+  display: flex !important;
+  flex-direction: row !important; 
+  gap: 3rem;
+  padding: 2rem 0;
+  width: max-content !important;
+}
+
+/* Original Card Dimensions Lock */
+.my-original-template .milestone-card {
+  flex: 0 0 320px !important;
+  width: 320px !important;
+  max-width: 320px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.my-original-template .media-viewport {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  background-color: #0c0c0e;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.my-original-template .media-viewport img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+  opacity: 0.6;
+  transition: var(--transition-smooth);
+}
+
+.my-original-template .card-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-original-template .card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.my-original-template .card-year {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-pure);
+  letter-spacing: -0.02em;
+}
+
+.my-original-template .card-category {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.my-original-template .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-pure);
+  letter-spacing: -0.01em;
+}
+
+.my-original-template .reveal-wrapper {
+  display: grid;
+  grid-template-rows: 0fr; 
+  transition: var(--transition-smooth);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.my-original-template .card-desc {
+  overflow: hidden;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  transition: var(--transition-smooth);
+}
+
+/* Interactions Styles Preservation */
+.my-original-template .milestone-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-8px) scale(1.02); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.my-original-template .milestone-card:hover .media-viewport img {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1);
+  opacity: 0.9;
+}
+
+.my-original-template .milestone-card:hover .reveal-wrapper {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  opacity: 1;
+  margin-top: 0.75rem;
+}
+
+.my-original-template .milestone-card.sustainability-pivot {
+  border-color: rgba(167, 243, 208, 0.15);
+}
+
+.my-original-template .milestone-card.sustainability-pivot .badge-alert {
+  color: var(--sage-accent);
+  background-color: var(--sage-dim);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.my-original-template .milestone-card.sustainability-pivot:hover {
+  border-color: var(--sage-accent);
+  box-shadow: 0 20px 40px rgba(6, 78, 59, 0.3);
+}
+
+.my-original-template .minimal-footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   3. NEW ELEMENTS STYLING: High Contrast, Design Tokens & Forms
+   ========================================================================== */
+.localization-grid-section {
+  background-color: var(--bg-deep);
+}
+
+.grid-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: var(--transition-smooth);
+}
+.grid-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-4px);
+}
+.grid-card p {
+  color: var(--text-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.grid-icon-box {
+  color: var(--sage-accent);
+}
+
+.learn-more-link {
+  color: var(--sage-accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.learn-more-link:hover {
+  color: #6ee7b7;
+}
+
+/* Form Styles Override For Full Dark Mode Compliance */
+.btn-sage {
+  background-color: var(--sage-accent) !important;
+  color: #042f22 !important; 
+  border: none;
+  transition: var(--transition-smooth);
+}
+.btn-sage:hover, .btn-sage:focus {
+  background-color: #6ee7b7 !important;
+  box-shadow: 0 0 0 3px rgba(167, 243, 208, 0.4);
+}
+
+.newsletter-wrapper {
+  background-color: #111113;
+  border: 1px solid var(--border-subtle);
+}
+.form-floating .form-control {
+  background-color: #1a1a1e !important;
+  color: #ffffff !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+.form-floating .form-control:focus {
+  border-color: var(--sage-accent) !important;
+  box-shadow: 0 0 0 0.25rem rgba(167, 243, 208, 0.2) !important;
+}
+.form-floating label {
+  color: #71717a !important;
   right: 0 !important;
   left: auto !important;
   transform-origin: 100% 0 !important;
 }
-
-/* Corrects custom checkbox floating alignments */
-[dir="rtl"] .form-check {
-  padding-right: 1.5em !important;
-  padding-left: 0 !important;
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: var(--sage-accent) !important;
 }
 
-[dir="rtl"] .form-check .form-check-input {
+/* Correct Native RTL Padding Variables for Bootstrap Forms checkboxes */
+.form-check-input {
   float: right !important;
-  margin-right: -1.5em !important;
-  margin-left: 0 !important;
 }
 
-/* Flips action arrows smoothly on localized paths */
-[dir="rtl"] .link-arrow {
-  transform: scaleX(-1) !important;
-  margin-right: 0.5rem !important;
-  margin-left: 0 !important;
+.check-custom:checked {
+  background-color: var(--sage-dim) !important;
+  border-color: var(--sage-accent) !important;
 }
 
-[dir="rtl"] .learn-more-link:hover .link-arrow {
-  transform: scaleX(-1) translateX(-4px) !important;
+.footer-nav a { transition: color 0.2s ease; }
+.footer-nav a:hover, .footer-nav a:focus {
+  color: var(--text-pure) !important;
+  text-decoration: underline !important;
 }
 
-/* Keeps the timeline tracking smoothly horizontally */
-[dir="rtl"] .timeline-track {
+/* Keep timeline flow reading landscape on desktop width targets natively */
+.my-original-template .timeline-track {
   flex-direction: row !important;
+}
+
+/* ==========================================================================
+   4. Mobile Rescaling Breakpoints Handling
+   ========================================================================== */
+@media (max-width: 768px) {
+  .my-original-template .timeline-viewport {
+    padding: 2rem 1.5rem;
+    overflow-x: visible !important; 
+    scroll-snap-type: none !important; 
+  }
+
+  .my-original-template .timeline-track {
+    flex-direction: column !important; 
+    width: 100% !important;
+    gap: 2rem;
+    padding: 0;
+  }
+
+  .my-original-template .milestone-card {
+    flex: none !important; 
+    width: 100% !important; 
+    max-width: 100% !important;
+    scroll-snap-align: none !important;
+  }
+
+  .my-original-template .media-viewport {
+    padding-top: 56.25% !important; 
+  }
+
+  .my-original-template .reveal-wrapper {
+    grid-template-rows: 1fr !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 0.75rem;
+  }
 }
